@@ -1,0 +1,12 @@
+h1{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+hr{
+    height: 0px;
+    border: none;
+    border-top: 3px solid white;
+    opacity: 1;
+}

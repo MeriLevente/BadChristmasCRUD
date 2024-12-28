@@ -1,0 +1,52 @@
+{
+    "badpresents": [
+        {
+            "id": 1,
+            "name": "Karácsonyos zokni",
+            "giver": "Nagymama",
+            "description": "Ronda, mikulásos zokni.",
+            "reasoning": "Nem tetszik",
+            "canBeReturned": false
+        },
+        {
+            "id": 2,
+            "name": "Fehér pulóver",
+            "giver": "Nővér",
+            "description": "Nem márkás, de az anyga nem rossz.",
+            "reasoning": "Rossz méret",
+            "canBeReturned": true
+        },
+        {
+            "id": 3,
+            "name": "Tusfürdő",
+            "giver": "Nagypapa",
+            "description": "Férfias illatú, olcsó.",
+            "reasoning": "Nem vagyok büdös",
+            "canBeReturned": false
+        },
+        {
+            "id": 4,
+            "name": "Nintendo Switch",
+            "giver": "Szülők",
+            "description": "Hordozható játékkonzol.",
+            "reasoning": "Már van ilyenem",
+            "canBeReturned": true
+        },
+        {
+            "id": 5,
+            "name": "Lego Star Wars szett",
+            "giver": "Húg",
+            "description": "Apró lego szett.",
+            "reasoning": "Egyéb",
+            "canBeReturned": false
+        },
+        {
+            "id": 6,
+            "name": "Bor",
+            "giver": "Munkatárs",
+            "description": "Lidl-s fehér bor.",
+            "reasoning": "Tiltja a vallásom",
+            "canBeReturned": false
+        }
+    ]
+}
