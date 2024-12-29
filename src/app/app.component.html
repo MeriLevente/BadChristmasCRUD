@@ -1,4 +1,32 @@
 <div class="container">
-  <h1>Rossz karácsonyi ajándékok listája</h1>
+  <h1 class="mt-5">Rossz karácsonyi ajándékok listája</h1>
   <hr>
+
+  <table class="table table-hover table-bordered">
+    <tr class="text-center">
+      <th>
+        <span (click)="new()">&#10010;</span>
+      </th>
+      <th>Ajándék</th>
+      <th>Kitől?</th>
+      <th>Leírás</th>
+      <th>Miért rossz?</th>
+      <th>Visszavihető</th>
+    </tr>
+    @for (present of presents; track $index) {
+    <tr>
+      <td>
+        <span (click)="modify(present)">&#9998;</span>
+        <span (click)="delete(present)">&#10008;</span>
+      </td>
+      <td>{{ present.name }}</td>
+      <td>{{ present.giver }}</td>
+      <td>{{ present.description }}</td>
+      <td>{{ present.reasoning }}</td>
+      <td>{{ present.canBeReturned }}</td>
+    </tr>
+    }
+  </table>
+
+  <app-present-data></app-present-data>
 </div>

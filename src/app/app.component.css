@@ -10,3 +10,8 @@ hr{
     border-top: 3px solid white;
     opacity: 1;
 }
+
+table{
+    background-color: white;
+    color: black;
+}
