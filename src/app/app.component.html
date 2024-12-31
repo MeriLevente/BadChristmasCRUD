@@ -2,31 +2,35 @@
   <h1 class="mt-5">Rossz karácsonyi ajándékok listája</h1>
   <hr>
 
-  <table class="table table-hover table-bordered">
-    <tr class="text-center">
-      <th>
-        <span (click)="new()">&#10010;</span>
-      </th>
-      <th>Ajándék</th>
-      <th>Kitől?</th>
-      <th>Leírás</th>
-      <th>Miért rossz?</th>
-      <th>Visszavihető</th>
-    </tr>
-    @for (present of presents; track $index) {
-    <tr>
-      <td>
-        <span (click)="modify(present)">&#9998;</span>
-        <span (click)="delete(present)">&#10008;</span>
-      </td>
-      <td>{{ present.name }}</td>
-      <td>{{ present.giver }}</td>
-      <td>{{ present.description }}</td>
-      <td>{{ present.reasoning }}</td>
-      <td>{{ present.canBeReturned }}</td>
-    </tr>
+  <div class="borderedContent p-3 pt-0">
+    @if (!newPres && !modifiedPres) {
+    <table class="table">
+      <tr class="text-center" id="tr-header">
+        <th>
+          <span (click)="new()">&#10010;</span>
+        </th>
+        <th>Ajándék</th>
+        <th>Kitől?</th>
+        <th>Leírás</th>
+        <th>Miért rossz?</th>
+        <th>Visszavihető</th>
+      </tr>
+      @for (present of presents; track $index) {
+      <tr class="text-center">
+        <td>
+          <span (click)="modify(present)">&#9998;</span>
+          <span (click)="delete(present)">&#10008;</span>
+        </td>
+        <td>{{ present.name }}</td>
+        <td>{{ present.giver }}</td>
+        <td>{{ present.description }}</td>
+        <td>{{ present.reasoning }}</td>
+        <td>{{ present.canBeReturned }}</td>
+      </tr>
+      }
+    </table>
     }
-  </table>
-
-  <app-present-data></app-present-data>
+    <app-present-data [presentData]="newPres" (canceled)="formCanceled()" (saved)="saveNew($event)"></app-present-data>
+    <app-present-data [presentData]="modifiedPres" (canceled)="formCanceled()" (saved)="saveModify($event)"></app-present-data>
+  </div>
 </div>

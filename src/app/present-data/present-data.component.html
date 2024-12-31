@@ -1,1 +1,41 @@
-<p>present-data works!</p>
+@if (presentData) {
+<div class="row">
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Ajándék</label>
+            <input type="text" class="form-control" id="name" [value]="presentData.name" (change)="presentData.name = getData($event)">
+        </div>
+        <div class="mb-3">
+            <label for="giver" class="form-label">Kitől</label>
+            <input type="text" class="form-control" id="giver" [value]="presentData.giver" (change)="presentData.giver= getData($event)">
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Leírás</label>
+            <input type="text" class="form-control" id="desc" [value]="presentData.description" (change)="presentData.description= getData($event)">
+        </div>
+        <div class="mb-3">
+            <label for="reasoning" class="form-label">Indoklás</label>
+            <select class="form-select" id="reasoning" [value]="presentData.reasoning" (change)="presentData.reasoning = getData($event)">
+                <option selected value="Már van ilyenem">Már van ilyenem</option>
+                <option value="Nem tetszik">Nem tetszik</option>
+                <option value="Nem vagyok büdös">Nem vagyok büdös</option>
+                <option value="Rossz méret">Rossz méret</option>
+                <option value="Tiltja a vallásom">Tiltja a vallásom</option>
+                <option value="Egyéb">Egyéb</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <p class="me-3" style="display: inline;">Visszavihető?</p>
+            <label class="me-1" for="canBeReturned">Igen</label>
+            <input class="me-3" type="radio" name="canBeReturned" id="canBeReturned" [checked]="presentData.canBeReturned">
+            <label class="me-1" for="cantBeReturned">Nem</label>
+            <input type="radio" name="canBeReturned" id="cantBeReturned" [checked]="!presentData.canBeReturned">
+        </div>
+    </form>
+</div>
+<div class="row">
+    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="cancel()">Mégsem</button>
+    <button type="button" class="btn btn-success" (click)="save()">Mentés</button>
+</div>
+}

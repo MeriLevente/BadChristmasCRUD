@@ -16,4 +16,16 @@ export class DataService {
   getPresent(): Observable<PresentModel[]> {
     return this.http.get<PresentModel[]>(this.url)
   }
+
+  addPresent(present: PresentModel): Observable<PresentModel>{
+    return this.http.post<PresentModel>(this.url, present)
+  }
+
+  modifyPresent(present: PresentModel): Observable<PresentModel>{
+    return this.http.put<PresentModel>(`${this.url}/${present.id}`, present)
+  }
+
+  deletePresent(present: PresentModel): Observable<PresentModel>{
+    return this.http.delete<PresentModel>(`${this.url}/${present.id}`)
+  }
 }

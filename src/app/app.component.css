@@ -12,6 +12,25 @@ hr{
 }
 
 table{
-    background-color: white;
     color: black;
+}
+
+td span, tr span {
+    cursor: pointer;
+    padding: 3px;
+}
+
+.borderedContent{
+    background-color: white;
+    border: 10px solid;
+    border-image: repeating-linear-gradient(45deg, red, white, red 60px) 20;
+}
+
+tr{
+    height: 30px;
+    border-bottom: 2px black dotted;
+}
+
+#tr-header{
+    border-bottom: 4px black solid;
 }
