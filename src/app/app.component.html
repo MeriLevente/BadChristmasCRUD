@@ -25,7 +25,11 @@
         <td>{{ present.giver }}</td>
         <td>{{ present.description }}</td>
         <td>{{ present.reasoning }}</td>
-        <td>{{ present.canBeReturned }}</td>
+        @if (present.canBeReturned) {
+        <td style="color: green; font-weight: bold;">Igen</td>
+        } @else {
+        <td style="color: red; font-weight: bold;">Nem</td>
+        }
       </tr>
       }
     </table>

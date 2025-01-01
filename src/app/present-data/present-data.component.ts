@@ -21,6 +21,13 @@ export class PresentDataComponent {
   }
 
   save(){
-    this.saved.emit(this.presentData)
+    if(this.isFormFilledOut())
+      this.saved.emit(this.presentData)
+    else
+      alert("Töltsön ki minden mezőt!")
+  }
+
+  isFormFilledOut(){
+    return this.presentData?.name != "" && this.presentData?.description != "" && this.presentData?.giver != "" && this.presentData?.reasoning != ""
   }
 }
