@@ -2,35 +2,57 @@ h1{
     text-align: center;
     color: white;
     font-weight: bold;
+    
 }
 
-hr{
-    height: 0px;
-    border: none;
-    border-top: 3px solid white;
-    opacity: 1;
+h2{
+    display: inline-block;
+    background-color: white;
+    color: red;
+    text-align: center;
+    border: 2px solid black;
 }
 
-table{
-    color: black;
+.green-card{
+    background-color: green;
 }
 
-td span, tr span {
-    cursor: pointer;
+.green-card > h2{
+    color: green;
+}
+
+.red-card{
+    background-color: red;
+}
+
+p{
     padding: 3px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    color: black;
+    font-style: italic;
+    border-bottom: 2px dotted black;
+}
+
+.white-span{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 .borderedContent{
     background-color: white;
     border: 10px solid;
     border-image: repeating-linear-gradient(45deg, red, white, red 60px) 20;
+    overflow: hidden;
 }
 
-tr{
-    height: 30px;
-    border-bottom: 2px black dotted;
-}
-
-#tr-header{
-    border-bottom: 4px black solid;
+.card{
+    height: 320px;
+    float: left;
+    border: 2px solid black;
 }

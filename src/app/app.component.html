@@ -1,38 +1,49 @@
 <div class="container">
   <h1 class="mt-5">Rossz karácsonyi ajándékok listája</h1>
-  <hr>
+  <hr style="color: white; height:5px;border:none; background-color: white;opacity: 100;">
 
   <div class="borderedContent p-3 pt-0">
+
     @if (!newPres && !modifiedPres) {
-    <table class="table">
-      <tr class="text-center" id="tr-header">
-        <th>
-          <span (click)="new()">&#10010;</span>
-        </th>
-        <th>Ajándék</th>
-        <th>Kitől?</th>
-        <th>Leírás</th>
-        <th>Miért rossz?</th>
-        <th>Visszavihető</th>
-      </tr>
-      @for (present of presents; track $index) {
-      <tr class="text-center">
-        <td>
-          <span (click)="modify(present)">&#9998;</span>
-          <span (click)="delete(present)">&#10008;</span>
-        </td>
-        <td>{{ present.name }}</td>
-        <td>{{ present.giver }}</td>
-        <td>{{ present.description }}</td>
-        <td>{{ present.reasoning }}</td>
+    <div style="display: block;">
+      <button class="btn btn-danger my-3">
+        <span (click)="new()">&#10010; Új felvétele</span>
+      </button>
+    </div>
+
+    @for (present of presents; track $index) {
+    <div class="card col-xl-4 col-md-6 col-12 my-3" [ngClass]="present.canBeReturned ? 'green-card' : 'red-card'">
+      <h2>{{ present.name }}</h2>
+      <span class="white-span">
+        Kitől:
+        <p>{{ present.giver }}</p>
+      </span>
+      <span class="white-span">
+        Leírás:
+        <p>{{ present.description }}</p>
+      </span>
+      <span class="white-span">
+        Miért:
+        <p>{{ present.reasoning }}</p>
+      </span>
+      <span class="white-span">
+        Visszavihető:
         @if (present.canBeReturned) {
-        <td style="color: green; font-weight: bold;">Igen</td>
+        <p style="color: green; font-weight: bold;">Igen</p>
         } @else {
-        <td style="color: red; font-weight: bold;">Nem</td>
+        <p style="color: red; font-weight: bold;">Nem</p>
         }
-      </tr>
-      }
-    </table>
+      </span>
+      <div class="d-flex justify-content-start">
+        <button class="btn btn-light mx-3">
+          <span (click)="modify(present)">&#9998;</span>
+        </button>
+        <button class="btn btn-light">
+          <span (click)="delete(present)">&#10008;</span>
+        </button>
+      </div>
+    </div>
+    }
     }
     <app-present-data [presentData]="newPres" (canceled)="formCanceled()" (saved)="saveNew($event)"></app-present-data>
     <app-present-data [presentData]="modifiedPres" (canceled)="formCanceled()" (saved)="saveModify($event)"></app-present-data>
